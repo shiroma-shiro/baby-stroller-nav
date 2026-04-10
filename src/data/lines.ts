@@ -705,84 +705,84 @@ export interface ElevatorRec {
 type ElevatorKey = string;
 
 export const ELEVATOR_MAP: Record<ElevatorKey, ElevatorRec> = {
-  // 山手線
-  '新宿|yamanote':    { car: 6, position: '前寄り', boardNote: '南改札のエレベーターでホームへ。6号車付近に乗車', alightNote: '6号車降車後すぐ前方にエレベーター' },
-  '渋谷|yamanote':    { car: 6, position: '前寄り', boardNote: '南改札のエレベーターでホームへ。6号車付近に乗車', alightNote: '6号車降車後すぐエレベーター（南改札方向）' },
-  '池袋|yamanote':    { car: 3, position: '中程',   boardNote: '南改札のエレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後前方へ進むと南改札エレベーター' },
-  '上野|yamanote':    { car: 4, position: '前寄り', boardNote: '公園口のエレベーターでホームへ。4号車付近に乗車', alightNote: '4号車を降りると公園口方向エレベーター' },
-  '東京|yamanote':    { car: 6, position: '中程',   boardNote: '丸ノ内中央口のエレベーターでホームへ。6号車付近に乗車', alightNote: '6号車降車後エレベーターで丸ノ内中央口へ' },
-  '品川|yamanote':    { car: 5, position: '中程',   boardNote: '中央改札のエレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで中央改札へ' },
-  '新橋|yamanote':    { car: 6, position: '中程',   boardNote: 'JR新橋駅エレベーターでホームへ。6号車付近に乗車', alightNote: '6号車降車後エレベーターで改札へ' },
-  '秋葉原|yamanote':  { car: 4, position: '中程',   boardNote: '電気街口のエレベーターでホームへ。4号車付近に乗車', alightNote: '4号車降車後エレベーターで電気街口へ' },
-  '恵比寿|yamanote':  { car: 5, position: '中程',   boardNote: '東口のエレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで東口へ' },
-  '目黒|yamanote':    { car: 5, position: '中程',   boardNote: '東口のエレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで東口へ' },
-  // 中央線
-  '東京|jr-chuo':     { car: 5, position: '中程',   boardNote: 'JR東京丸ノ内中央口のエレベーターでホームへ', alightNote: '5号車降車後エレベーターで丸ノ内口へ' },
-  '新宿|jr-chuo':     { car: 5, position: '中程',   boardNote: 'JR新宿南改札のエレベーターでホームへ', alightNote: '5号車降車後エレベーターで南改札へ' },
-  // 丸ノ内線
-  '池袋|marunouchi':   { car: 1, position: '前寄り', boardNote: '地下1Fエレベーターで1番線へ。1号車はホーム前端', alightNote: '1号車降車後すぐエレベーター' },
-  '銀座|marunouchi':   { car: 1, position: '後寄り', boardNote: 'エレベーターで改札階→ホームへ。1号車付近に乗車', alightNote: '1号車降車後エレベーターでA13出口（広い）へ' },
-  '東京|marunouchi':   { car: 6, position: '後寄り', boardNote: '改札エレベーターでホームへ。6号車はホーム後端', alightNote: '6号車降車後エレベーターで丸ノ内中央口へ' },
-  '新宿|marunouchi':   { car: 6, position: '前寄り', boardNote: '丸ノ内線新宿駅エレベーターでホームへ。6号車付近', alightNote: '6号車降車後エレベーターで改札へ' },
-  '赤坂見附|marunouchi': { car: 3, position: '中程', boardNote: '赤坂見附駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '霞ヶ関|marunouchi': { car: 3, position: '中程',   boardNote: '霞ヶ関駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  // 銀座線
-  '渋谷|ginza':   { car: 1, position: '前寄り', boardNote: '銀座線は渋谷駅3F。エレベーターで3Fへ上がり1号車に乗車', alightNote: '1号車降車後エレベーターで地上へ' },
-  '浅草|ginza':   { car: 6, position: '後寄り', boardNote: '1番出口エレベーターで改札へ。6号車はホーム後端', alightNote: '6号車降車後すぐ1番出口エレベーター' },
-  '銀座|ginza':   { car: 3, position: '中程',   boardNote: '銀座駅エレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後エレベーターでA13出口（広い）へ' },
-  '上野|ginza':   { car: 3, position: '中程',   boardNote: '上野駅銀座線エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '表参道|ginza': { car: 2, position: '前寄り', boardNote: '表参道駅エレベーターでホームへ。2号車付近に乗車', alightNote: '2号車降車後エレベーターで改札へ' },
-  // 日比谷線
-  '六本木|hibiya':  { car: 3, position: '前寄り', boardNote: '六本木駅エレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後エレベーターで出口2（広い）へ' },
-  '銀座|hibiya':    { car: 4, position: '中程',   boardNote: '銀座駅日比谷線エレベーターでホームへ。4号車付近', alightNote: '4号車降車後エレベーターで改札へ' },
-  '上野|hibiya':    { car: 4, position: '中程',   boardNote: '上野駅日比谷線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  '恵比寿|hibiya':  { car: 4, position: '中程',   boardNote: '恵比寿駅日比谷線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  '中目黒|hibiya':  { car: 1, position: '前寄り', boardNote: '中目黒駅エレベーターでホームへ。1号車はホーム前端', alightNote: '1号車降車後エレベーターで改札へ' },
-  '秋葉原|hibiya':  { car: 4, position: '中程',   boardNote: '秋葉原駅日比谷線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで電気街口へ' },
-  '北千住|hibiya':  { car: 4, position: '中程',   boardNote: '北千住駅日比谷線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  // 浅草線
-  '浅草|asakusa':   { car: 4, position: '中程',   boardNote: '浅草駅都営浅草線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  '新橋|asakusa':   { car: 4, position: '中程',   boardNote: '新橋駅都営浅草線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  '五反田|asakusa': { car: 4, position: '中程',   boardNote: '五反田駅都営浅草線エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札へ' },
-  '大門|asakusa':   { car: 4, position: '中程',   boardNote: '大門駅エレベーターでホームへ', alightNote: '4号車降車後エレベーターで改札・大門出口へ' },
-  '押上|asakusa':   { car: 4, position: '中程',   boardNote: '押上駅エレベーターでホームへ', alightNote: '4号車降車後エレベーターでB3出口（広い）へ' },
-  // 半蔵門線
-  '渋谷|hanzomon':  { car: 5, position: '中程',   boardNote: '半蔵門線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
-  '押上|hanzomon':  { car: 5, position: '中程',   boardNote: '押上駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターでB3出口へ' },
-  // 副都心線
-  '渋谷|fukutoshin': { car: 5, position: '中程',   boardNote: '副都心線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
-  // 東急東横線
-  '渋谷|tokyu-toyoko': { car: 5, position: '中程', boardNote: '東横線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
-  '横浜|tokyu-toyoko': { car: 3, position: '中程', boardNote: '横浜駅東横線エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  // 田園都市線
-  '渋谷|tokyu-denentoshi': { car: 5, position: '中程', boardNote: '田園都市線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
-  // 小田急小田原線
-  '新宿|odakyu':        { car: 8, position: '前寄り', boardNote: '小田急新宿駅エレベーターでホームへ。8号車付近に乗車', alightNote: '8号車降車後エレベーターで改札へ' },
-  '代々木上原|odakyu':  { car: 5, position: '中程',   boardNote: '代々木上原駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '下北沢|odakyu':      { car: 5, position: '中程',   boardNote: '下北沢駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '成城学園前|odakyu':  { car: 5, position: '中程',   boardNote: '成城学園前駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '登戸|odakyu':        { car: 5, position: '中程',   boardNote: '登戸駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '新百合ヶ丘|odakyu':  { car: 5, position: '中程',   boardNote: '新百合ヶ丘駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '町田|odakyu':        { car: 5, position: '中程',   boardNote: '町田駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '本厚木|odakyu':      { car: 5, position: '中程',   boardNote: '本厚木駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '小田原|odakyu':      { car: 5, position: '中程',   boardNote: '小田原駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  // JR京葉線
-  '東京|jr-keiyo':        { car: 5, position: '中程', boardNote: 'JR東京駅京葉線ホームはB1F。エレベーターで地下へ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで地上改札へ' },
-  '舞浜|jr-keiyo':        { car: 5, position: '中程', boardNote: '舞浜駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ（ディズニーリゾート口）' },
-  '新浦安|jr-keiyo':      { car: 5, position: '中程', boardNote: '新浦安駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '海浜幕張|jr-keiyo':    { car: 5, position: '中程', boardNote: '海浜幕張駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '葛西臨海公園|jr-keiyo':{ car: 5, position: '中程', boardNote: '葛西臨海公園駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  '新木場|jr-keiyo':      { car: 5, position: '中程', boardNote: '新木場駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
-  // ゆりかもめ（全駅エレベーター完備）
-  '新橋|yurikamome':                    { car: 3, position: '中程', boardNote: '新橋駅ゆりかもめ改札横のエレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
-  '汐留|yurikamome':                    { car: 3, position: '中程', boardNote: '汐留駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '竹芝|yurikamome':                    { car: 3, position: '中程', boardNote: '竹芝駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  'お台場海浜公園|yurikamome':          { car: 3, position: '中程', boardNote: 'お台場海浜公園駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札・海浜公園方面へ' },
-  '台場|yurikamome':                    { car: 3, position: '中程', boardNote: '台場駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターでフジテレビ方面改札へ' },
-  'テレコムセンター|yurikamome':        { car: 3, position: '中程', boardNote: 'テレコムセンター駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '青海|yurikamome':                    { car: 3, position: '中程', boardNote: '青海駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '有明|yurikamome':                    { car: 3, position: '中程', boardNote: '有明駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
-  '豊洲|yurikamome':                    { car: 3, position: '中程', boardNote: '豊洲駅ゆりかもめエレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  // 山手線（11両編成）
+  '新宿|yamanote':    { car: 4, position: '中程',   boardNote: '山手線新宿駅エレベーターでホームへ。内回り(渋谷方面)14番線は4号車中方、外回り(池袋方面)15番線は4号車前方に乗車', alightNote: '4号車降車後すぐエレベーターで改札へ' },
+  '渋谷|yamanote':    { car: 1, position: '前寄り', boardNote: 'ハチ公改札エレベーターでホームへ。1号車前方付近に乗車', alightNote: '1号車降車後すぐ前方にエレベーター（ハチ公改札方向）' },
+  '池袋|yamanote':    { car: 7, position: '中程',   boardNote: '南改札・中央改札方面エレベーターでホームへ。7号車中方付近に乗車', alightNote: '7号車降車後すぐエレベーターで改札へ' },
+  '上野|yamanote':    { car: 8, position: '後寄り', boardNote: '山手線上野駅エレベーターでホームへ。8号車後方付近に乗車', alightNote: '8号車後方降車後エレベーターで改札へ' },
+  '東京|yamanote':    { car: 9, position: '前寄り', boardNote: 'Cエレベーターでホームへ。9号車前方（新幹線北のりかえ口方面）に乗車', alightNote: '9号車前方降車後エレベーターで丸ノ内中央口へ' },
+  '品川|yamanote':    { car: 5, position: '前寄り', boardNote: '中央改札方面エレベーターでホームへ。5号車前方付近に乗車', alightNote: '5号車前方降車後エレベーターで中央改札へ' },
+  '新橋|yamanote':    { car: 5, position: '中程',   boardNote: 'Bエレベーター（南改札・汐留地下改札方面）でホームへ。5号車中方付近に乗車', alightNote: '5号車降車後エレベーターで南改札へ' },
+  '秋葉原|yamanote':  { car: 4, position: '前寄り', boardNote: '電気街改札・中央改札方面エレベーターでホームへ。4号車前方付近に乗車', alightNote: '4号車前方降車後エレベーターで電気街口へ' },
+  '恵比寿|yamanote':  { car: 4, position: '前寄り', boardNote: '恵比寿駅エレベーターでホームへ。外回り(渋谷方面)は4号車前方、内回り(品川方面)は4号車中方に乗車', alightNote: '4号車降車後エレベーターで改札へ' },
+  '目黒|yamanote':    { car: 6, position: '前寄り', boardNote: '目黒駅Bエレベーターでホームへ。外回り(渋谷方面)は6号車前方、内回り(品川方面)は5号車中方に乗車', alightNote: '外回りは6号車前方、内回りは5号車中方のエレベーターで改札へ' },
+  // 中央線快速（10両編成）
+  '東京|jr-chuo':     { car: 3, position: '前寄り', boardNote: 'JR東京駅Aエレベーターでホームへ。3号車前方付近に乗車', alightNote: '3号車前方降車後エレベーターで丸ノ内口へ' },
+  '新宿|jr-chuo':     { car: 5, position: '後寄り', boardNote: 'JR新宿駅中央東改札・小田急のりかえ口方面エレベーターでホームへ。5号車後方付近に乗車', alightNote: '5号車後方降車後エレベーターで改札へ' },
+  // 丸ノ内線（6両編成）
+  '池袋|marunouchi':   { car: 6, position: '前寄り', boardNote: '丸ノ内線池袋駅エレベーターでホームへ。6号車前方付近に乗車', alightNote: '6号車前方降車後エレベーターで改札へ' },
+  '銀座|marunouchi':   { car: 3, position: '中程',   boardNote: '銀座駅エレベーターでホームへ。3号車中方付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
+  '東京|marunouchi':   { car: 4, position: '前寄り', boardNote: '丸ノ内線東京駅エレベーターでホームへ。荻窪方面(1番線)は4号車前方、池袋方面(2番線)は4号車後方に乗車', alightNote: '4号車降車後エレベーターで改札へ' },
+  '新宿|marunouchi':   { car: 6, position: '後寄り', boardNote: '丸ノ内線新宿駅東改札方面エレベーターでホームへ。荻窪方面(1番線)は6号車後方、池袋方面(2番線)は6号車前方に乗車', alightNote: '6号車降車後エレベーターで東改札へ' },
+  '赤坂見附|marunouchi': { car: 6, position: '前寄り', boardNote: '赤坂見附駅エレベーターでホームへ。丸ノ内線2番線(池袋方面)は6号車前方に乗車', alightNote: '6号車前方降車後エレベーターで改札へ' },
+  '霞ヶ関|marunouchi': { car: 2, position: '後寄り', boardNote: '霞ヶ関駅エレベーターでホームへ（A1出口付近）。2号車後方付近に乗車', alightNote: '2号車後方降車後エレベーターでA1出口へ' },
+  // 銀座線（6両編成）
+  '渋谷|ginza':   { car: 6, position: '後寄り', boardNote: '銀座線渋谷駅エレベーターでホームへ（2階ヒカリエ方面改札）。6号車後方付近に乗車', alightNote: '6号車後方降車後エレベーターで改札・ヒカリエ方面へ' },
+  '浅草|ginza':   { car: 5, position: '後寄り', boardNote: '浅草駅エレベーターでホームへ。5号車後方付近に乗車', alightNote: '5号車後方降車後エレベーターで改札へ' },
+  '銀座|ginza':   { car: 6, position: '前寄り', boardNote: '銀座駅エレベーターでホームへ。渋谷方面(1番線)は6号車前方、浅草方面(2番線)は6号車後方に乗車', alightNote: '6号車降車後エレベーターで改札へ' },
+  '上野|ginza':   { car: 6, position: '後寄り', boardNote: '上野駅銀座線エレベーターでホームへ。6号車後方奥付近に乗車', alightNote: '6号車後方降車後エレベーターで改札へ' },
+  '表参道|ginza': { car: 4, position: '前寄り', boardNote: '表参道駅エレベーターでホームへ。銀座線4番線(渋谷方面)は4号車前方に乗車', alightNote: '4号車前方降車後エレベーターで改札へ' },
+  // 日比谷線（8両編成）
+  '六本木|hibiya':  { car: 7, position: '中程',   boardNote: '六本木駅エレベーターでホームへ。7号車中方付近に乗車', alightNote: '7号車降車後エレベーターで出口2（広い）へ' },
+  '銀座|hibiya':    { car: 4, position: '中程',   boardNote: '銀座駅日比谷線エレベーターでホームへ。4号車中方付近に乗車', alightNote: '4号車降車後エレベーターで改札へ' },
+  '上野|hibiya':    { car: 4, position: '中程',   boardNote: '上野駅日比谷線エレベーターでホームへ。4号車中方付近に乗車', alightNote: '4号車降車後エレベーターで改札へ' },
+  '恵比寿|hibiya':  { car: 3, position: '後寄り', boardNote: '恵比寿駅日比谷線エレベーターでホームへ。3号車後方付近に乗車', alightNote: '3号車後方降車後エレベーターで改札へ' },
+  '中目黒|hibiya':  { car: 8, position: '前寄り', boardNote: '中目黒駅エレベーターでホームへ。日比谷方面(1番線)10両時は8号車前方付近に乗車', alightNote: '8号車前方降車後エレベーターで改札へ' },
+  '秋葉原|hibiya':  { car: 2, position: '前寄り', boardNote: '秋葉原駅日比谷線エレベーターでホームへ。2号車前方付近に乗車', alightNote: '2号車前方降車後エレベーターで電気街口へ' },
+  '北千住|hibiya':  { car: 1, position: '前寄り', boardNote: '北千住駅日比谷線エレベーターでホームへ。1号車前方付近に乗車', alightNote: '1号車前方降車後エレベーターで改札へ' },
+  // 都営浅草線（8両編成）
+  '浅草|asakusa':   { car: 2, position: '後寄り', boardNote: '浅草駅都営浅草線エレベーターでホームへ。2号車後方付近に乗車', alightNote: '2号車後方降車後エレベーターで改札へ' },
+  '新橋|asakusa':   { car: 4, position: '前寄り', boardNote: '新橋駅都営浅草線エレベーターでホームへ。4号車前方付近に乗車', alightNote: '4号車前方降車後エレベーターで改札へ' },
+  '五反田|asakusa': { car: 3, position: '後寄り', boardNote: '五反田駅都営浅草線エレベーターでホームへ。3号車後方付近に乗車', alightNote: '3号車後方降車後エレベーターで改札へ' },
+  '大門|asakusa':   { car: 4, position: '中程',   boardNote: '大門駅エレベーターでホームへ。4号車付近に乗車', alightNote: '4号車降車後エレベーターで改札・大門出口へ' },
+  '押上|asakusa':   { car: 7, position: '前寄り', boardNote: '押上駅エレベーターでホームへ。7号車前方付近に乗車', alightNote: '7号車前方降車後エレベーターでB3出口（広い）へ' },
+  // 半蔵門線（10両編成）
+  '渋谷|hanzomon':  { car: 10, position: '後寄り', boardNote: '半蔵門線渋谷駅エレベーターでホームへ。押上方面(1番線)は10号車後方、中央林間方面(2番線)は10号車前方に乗車', alightNote: '10号車降車後エレベーターで改札・JR乗換方面へ' },
+  '押上|hanzomon':  { car: 4,  position: '中程',   boardNote: '押上駅エレベーターでホームへ。4号車中方付近に乗車', alightNote: '4号車降車後エレベーターでB3出口へ' },
+  // 副都心線（8両編成）
+  '渋谷|fukutoshin': { car: 5, position: '中程',   boardNote: '副都心線渋谷駅Cエレベーターでホームへ。5号車中方付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  // 東急東横線（8両編成）
+  '渋谷|tokyu-toyoko': { car: 5, position: '中程', boardNote: '東横線渋谷駅Cエレベーターでホームへ（副都心線と同一ホーム）。5号車中方付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '横浜|tokyu-toyoko': { car: 4, position: '前寄り', boardNote: '横浜駅東横線エレベーターでホームへ。元町・中華街方面(下り)は4号車前方、渋谷方面(上り)は4号車中方に乗車', alightNote: '4号車降車後エレベーターで改札へ' },
+  // 東急田園都市線（10両編成）
+  '渋谷|tokyu-denentoshi': { car: 10, position: '後寄り', boardNote: '田園都市線渋谷駅エレベーターでホームへ（半蔵門線と同一ホーム）。押上方面(1番線)は10号車後方、中央林間方面(2番線)は10号車前方に乗車', alightNote: '10号車降車後エレベーターで改札へ' },
+  // 小田急小田原線（10両編成）
+  '新宿|odakyu':        { car: 5, position: '中程',   boardNote: '小田急新宿駅3・4番線エレベーターでホームへ。5号車中方付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '代々木上原|odakyu':  { car: 7, position: '中程',   boardNote: '代々木上原駅エレベーターでホームへ。7号車中方付近に乗車', alightNote: '7号車降車後エレベーターで改札へ' },
+  '下北沢|odakyu':      { car: 7, position: '前寄り', boardNote: '下北沢駅エレベーターでホームへ。1番線(新百合ヶ丘方面)は7号車前方付近に乗車', alightNote: '7号車前方降車後エレベーターで改札へ' },
+  '成城学園前|odakyu':  { car: 6, position: '中程',   boardNote: '成城学園前駅エレベーターでホームへ。10両は6号車中方付近に乗車（4号車中方にも設置あり）', alightNote: '6号車降車後エレベーターで改札へ' },
+  '登戸|odakyu':        { car: 3, position: '中程',   boardNote: '登戸駅1番線エレベーターでホームへ。3号車中方付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
+  '新百合ヶ丘|odakyu':  { car: 7, position: '後寄り', boardNote: '新百合ヶ丘駅エレベーターでホームへ。10両時は7号車後方付近に乗車', alightNote: '7号車後方降車後エレベーターで改札へ' },
+  '町田|odakyu':        { car: 6, position: '後寄り', boardNote: '町田駅エレベーターでホームへ。10両時は6号車後方付近に乗車', alightNote: '6号車後方降車後エレベーターで改札へ' },
+  '本厚木|odakyu':      { car: 10, position: '中程',  boardNote: '本厚木駅エレベーターでホームへ。10号車中方付近に乗車（8号車後方・6号車後方にも設置あり）', alightNote: '10号車降車後エレベーターで改札へ' },
+  '小田原|odakyu':      { car: 5, position: '前寄り', boardNote: '小田原駅エレベーターでホームへ。10両時は5号車前方付近に乗車', alightNote: '5号車前方降車後エレベーターで改札へ' },
+  // JR京葉線（10両編成）
+  '東京|jr-keiyo':        { car: 4, position: '後寄り', boardNote: 'JR東京駅京葉線ホームはB1F。エレベーターで地下へ。4号車後方付近に乗車', alightNote: '4号車後方降車後エレベーターで地上改札へ' },
+  '舞浜|jr-keiyo':        { car: 3, position: '前寄り', boardNote: '舞浜駅エレベーターでホームへ。3号車前方付近に乗車', alightNote: '3号車前方降車後エレベーターで改札へ（ディズニーリゾート口）' },
+  '新浦安|jr-keiyo':      { car: 5, position: '前寄り', boardNote: '新浦安駅エレベーターでホームへ。5号車前方付近に乗車', alightNote: '5号車前方降車後エレベーターで改札へ' },
+  '海浜幕張|jr-keiyo':    { car: 4, position: '後寄り', boardNote: '海浜幕張駅エレベーターでホームへ。東京方面行き10両時は4号車後方付近に乗車', alightNote: '4号車後方降車後エレベーターで改札へ' },
+  '葛西臨海公園|jr-keiyo':{ car: 5, position: '後寄り', boardNote: '葛西臨海公園駅エレベーターでホームへ。東京方面行きは5号車後方、蘇我方面行きは5号車前方付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '新木場|jr-keiyo':      { car: 3, position: '中程',   boardNote: '新木場駅エレベーターでホームへ。3号車中方付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
+  // ゆりかもめ（6両編成、全駅エレベーター完備）
+  '新橋|yurikamome':              { car: 6, position: '前寄り', boardNote: '新橋駅ゆりかもめ改札横エレベーターでホームへ。6号車前方（西口改札・JR乗換方面）に乗車', alightNote: '6号車前方降車後エレベーターで西口改札へ（JR乗換に便利）' },
+  '汐留|yurikamome':              { car: 6, position: '中程',   boardNote: '汐留駅エレベーターでホームへ。6号車付近（豊洲方面は2番目ドア、新橋方面は1番目ドア）に乗車', alightNote: '6号車降車後エレベーターで改札へ' },
+  '竹芝|yurikamome':              { car: 5, position: '後寄り', boardNote: '竹芝駅エレベーターでホームへ。5号車後方付近に乗車', alightNote: '5号車後方降車後エレベーターで改札へ' },
+  'お台場海浜公園|yurikamome':    { car: 1, position: '前寄り', boardNote: 'お台場海浜公園駅エレベーターでホームへ。1号車前方付近に乗車', alightNote: '1号車降車後エレベーターで改札・海浜公園方面へ' },
+  '台場|yurikamome':              { car: 6, position: '前寄り', boardNote: '台場駅エレベーターでホームへ。6号車前方（豊洲方面は1番目ドア、新橋方面は2番目ドア）に乗車', alightNote: '6号車降車後エレベーターでフジテレビ方面改札へ' },
+  'テレコムセンター|yurikamome':  { car: 6, position: '前寄り', boardNote: 'テレコムセンター駅エレベーターでホームへ。6号車前方付近に乗車', alightNote: '6号車前方降車後エレベーターで改札へ' },
+  '青海|yurikamome':              { car: 1, position: '前寄り', boardNote: '青海駅エレベーターでホームへ。1号車前方付近に乗車', alightNote: '1号車降車後エレベーターで改札へ' },
+  '有明|yurikamome':              { car: 1, position: '前寄り', boardNote: '有明駅エレベーターでホームへ（豊洲方面）。1号車前方付近に乗車', alightNote: '1号車前方降車後エレベーターで改札へ' },
+  '豊洲|yurikamome':              { car: 3, position: '後寄り', boardNote: '豊洲駅ゆりかもめエレベーターでホームへ。3号車後方付近に乗車', alightNote: '3号車後方降車後エレベーターで改札へ' },
 };
 
 export function getElevatorRec(stationName: string, lineId: string, totalCars: number): ElevatorRec {
