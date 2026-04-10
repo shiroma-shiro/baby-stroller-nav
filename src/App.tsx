@@ -229,37 +229,8 @@ export default function App() {
           </>
         )}
 
-        {/* 初期状態 */}
-        {!routes && !loading && !noResult && (
-          <div style={{ padding: '20px 14px' }}>
-            <div style={{
-              background: '#fff', borderRadius: '20px', padding: '28px 20px',
-              border: '1px solid #E2E8F0',
-            }}>
-              <p style={{ fontSize: '13px', fontWeight: 800, color: '#94A3B8', letterSpacing: '0.12em',
-                margin: '0 0 14px', textTransform: 'uppercase' }}>よく使われるルート</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {[
-                  { from: '渋谷', to: '新宿',   label: '渋谷 → 新宿' },
-                  { from: '池袋', to: '東京',   label: '池袋 → 東京' },
-                  { from: '六本木', to: '表参道', label: '六本木 → 表参道' },
-                ].map(({ from, to, label }) => (
-                  <button key={label} className="pressable"
-                    onClick={() => doSearch({ from, to, time: new Date().toTimeString().slice(0, 5) })}
-                    style={{
-                      width: '100%', padding: '14px 18px',
-                      borderRadius: '14px', border: '2px solid #E2E8F0',
-                      background: '#F8FAFC', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    }}>
-                    <span style={{ fontSize: '18px', fontWeight: 800, color: '#1E3A5F' }}>{label}</span>
-                    <span style={{ fontSize: '18px', color: '#94A3B8' }}>›</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {/* 初期状態 — 何も表示しない */}
+        {!routes && !loading && !noResult && null}
       </div>
     </div>
   );

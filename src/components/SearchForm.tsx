@@ -42,50 +42,45 @@ export default function SearchForm({ initial, onSearch, loading }: SearchFormPro
   return (
     <form onSubmit={handleSubmit} style={{ padding: '16px' }}>
 
-      {/* ── 発 / 着 横並び ── */}
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1fr 48px 1fr',
-        gap: '8px', alignItems: 'center', marginBottom: '10px',
-      }}>
+      {/* ── 発 / 着 縦並び ── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '10px', position: 'relative' }}>
 
         {/* 出発駅 */}
         <div style={{
-          background: '#fff',
-          border: '2px solid #E2E8F0',
-          borderRadius: '16px', padding: '12px 14px',
-          transition: 'border-color 0.15s',
+          background: '#fff', border: '2px solid #E2E8F0',
+          borderRadius: '16px', padding: '14px 16px',
         }}>
           <p style={{
             fontSize: '11px', fontWeight: 800, color: '#1E3A5F',
-            letterSpacing: '0.12em', margin: '0 0 6px',
-            textTransform: 'uppercase',
+            letterSpacing: '0.12em', margin: '0 0 8px', textTransform: 'uppercase',
           }}>出発駅</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '32px', height: '32px', borderRadius: '10px', flexShrink: 0,
+              width: '34px', height: '34px', borderRadius: '10px', flexShrink: 0,
               background: '#1E3A5F',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '13px', fontWeight: 900, color: '#fff',
+              fontSize: '14px', fontWeight: 900, color: '#fff',
             }}>発</div>
             <input
               list="station-list"
               value={from}
               onChange={e => setFrom(e.target.value)}
-              placeholder="駅名"
+              placeholder="駅名を入力"
               required
               style={inputStyle}
             />
           </div>
         </div>
 
-        {/* スワップ */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* スワップボタン（中央に浮かせる） */}
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '-4px 0', zIndex: 1 }}>
           <button type="button" onClick={swap}
             className={swapping ? 'swap-go' : ''}
             style={{
-              width: '44px', height: '44px', borderRadius: '50%',
+              width: '40px', height: '40px', borderRadius: '50%',
               background: '#1E3A5F',
-              border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer',
+              border: '3px solid #F4F6F9',
+              color: '#fff', fontSize: '18px', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: '0 4px 12px rgba(30,58,95,0.35)',
               lineHeight: 1,
@@ -95,28 +90,25 @@ export default function SearchForm({ initial, onSearch, loading }: SearchFormPro
 
         {/* 到着駅 */}
         <div style={{
-          background: '#fff',
-          border: '2px solid #E2E8F0',
-          borderRadius: '16px', padding: '12px 14px',
-          transition: 'border-color 0.15s',
+          background: '#fff', border: '2px solid #E2E8F0',
+          borderRadius: '16px', padding: '14px 16px',
         }}>
           <p style={{
             fontSize: '11px', fontWeight: 800, color: '#3B9EE8',
-            letterSpacing: '0.12em', margin: '0 0 6px',
-            textTransform: 'uppercase',
+            letterSpacing: '0.12em', margin: '0 0 8px', textTransform: 'uppercase',
           }}>到着駅</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '32px', height: '32px', borderRadius: '10px', flexShrink: 0,
+              width: '34px', height: '34px', borderRadius: '10px', flexShrink: 0,
               background: '#3B9EE8',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '13px', fontWeight: 900, color: '#fff',
+              fontSize: '14px', fontWeight: 900, color: '#fff',
             }}>着</div>
             <input
               list="station-list"
               value={to}
               onChange={e => setTo(e.target.value)}
-              placeholder="駅名"
+              placeholder="駅名を入力"
               required
               style={inputStyle}
             />
