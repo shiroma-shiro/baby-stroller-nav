@@ -338,6 +338,19 @@ export const LINES: LineDef[] = [
       '横須賀中央','県立大学','堀ノ内','京急大津','馬堀海岸','浦賀',
     ],
   },
+  // ── ゆりかもめ ───────────────────────────────────────────────
+  {
+    id: 'yurikamome', name: 'ゆりかもめ', shortName: 'ゆりかもめ',
+    color: '#1094C1', textColor: '#fff', circular: false,
+    avgMinPerStop: 2.2, frequencyMin: 5, cars: 6,
+    dirForward: '豊洲方面', dirBackward: '新橋方面',
+    stations: [
+      '新橋','汐留','竹芝','日の出','芝浦ふ頭',
+      'お台場海浜公園','台場','東京国際クルーズターミナル',
+      'テレコムセンター','青海','有明テニスの森','有明',
+      '市場前','新豊洲','豊洲',
+    ],
+  },
 ];
 
 // ============================================================
@@ -418,10 +431,14 @@ export const TRANSFERS: TransferDef[] = [
   ...same('神田', 'yamanote',  'jr-chuo',    3),
   ...same('神田', 'yamanote',  'jr-keihin',  2),
   // ── 新橋 ─────────────────────────────────────────────────
-  ...same('新橋', 'yamanote',  'ginza',    3),
-  ...same('新橋', 'yamanote',  'asakusa',  5),
-  ...same('新橋', 'ginza',     'asakusa',  4),
-  ...same('新橋', 'yamanote',  'jr-keihin',2),
+  ...same('新橋', 'yamanote',    'ginza',       3),
+  ...same('新橋', 'yamanote',    'asakusa',     5),
+  ...same('新橋', 'ginza',       'asakusa',     4),
+  ...same('新橋', 'yamanote',    'jr-keihin',   2),
+  ...same('新橋', 'yamanote',    'yurikamome',  5),
+  ...same('新橋', 'ginza',       'yurikamome',  5),
+  ...same('新橋', 'asakusa',     'yurikamome',  6),
+  ...same('新橋', 'jr-keihin',   'yurikamome',  5),
   // ── 有楽町 ───────────────────────────────────────────────
   ...same('有楽町', 'yamanote',  'jr-keihin',   2),
   ...same('有楽町', 'yamanote',  'yurakucho',   5),
@@ -644,6 +661,8 @@ export const TRANSFERS: TransferDef[] = [
   ...same('錦糸町', 'jr-sobu', 'hanzomon', 5),
   // ── 赤羽 ─────────────────────────────────────────────────
   ...same('赤羽', 'jr-keihin', 'yamanote', 8),
+  // ── 豊洲（有楽町線↔ゆりかもめ）────────────────────────────
+  ...same('豊洲', 'yurakucho', 'yurikamome', 5),
 ];
 
 // ============================================================
@@ -710,6 +729,16 @@ export const ELEVATOR_MAP: Record<ElevatorKey, ElevatorRec> = {
   '横浜|tokyu-toyoko': { car: 3, position: '中程', boardNote: '横浜駅東横線エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
   // 田園都市線
   '渋谷|tokyu-denentoshi': { car: 5, position: '中程', boardNote: '田園都市線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
+  // ゆりかもめ（全駅エレベーター完備）
+  '新橋|yurikamome':                    { car: 3, position: '中程', boardNote: '新橋駅ゆりかもめ改札横のエレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
+  '汐留|yurikamome':                    { car: 3, position: '中程', boardNote: '汐留駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  '竹芝|yurikamome':                    { car: 3, position: '中程', boardNote: '竹芝駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  'お台場海浜公園|yurikamome':          { car: 3, position: '中程', boardNote: 'お台場海浜公園駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札・海浜公園方面へ' },
+  '台場|yurikamome':                    { car: 3, position: '中程', boardNote: '台場駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターでフジテレビ方面改札へ' },
+  'テレコムセンター|yurikamome':        { car: 3, position: '中程', boardNote: 'テレコムセンター駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  '青海|yurikamome':                    { car: 3, position: '中程', boardNote: '青海駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  '有明|yurikamome':                    { car: 3, position: '中程', boardNote: '有明駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
+  '豊洲|yurikamome':                    { car: 3, position: '中程', boardNote: '豊洲駅ゆりかもめエレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
 };
 
 export function getElevatorRec(stationName: string, lineId: string, totalCars: number): ElevatorRec {
