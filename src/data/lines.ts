@@ -338,6 +338,19 @@ export const LINES: LineDef[] = [
       '横須賀中央','県立大学','堀ノ内','京急大津','馬堀海岸','浦賀',
     ],
   },
+  // ── JR京葉線 ─────────────────────────────────────────────────
+  {
+    id: 'jr-keiyo', name: 'JR京葉線', shortName: '京葉線',
+    color: '#CC0033', textColor: '#fff', circular: false,
+    avgMinPerStop: 3.0, frequencyMin: 10, cars: 10,
+    dirForward: '蘇我方面', dirBackward: '東京方面',
+    stations: [
+      '東京','八丁堀','越中島','潮見','新木場',
+      '葛西臨海公園','舞浜','新浦安','市川塩浜','西船橋',
+      '二俣新町','南船橋','海浜幕張','検見川浜','稲毛海岸',
+      '千葉みなと','蘇我',
+    ],
+  },
   // ── ゆりかもめ ───────────────────────────────────────────────
   {
     id: 'yurikamome', name: 'ゆりかもめ', shortName: 'ゆりかもめ',
@@ -663,6 +676,17 @@ export const TRANSFERS: TransferDef[] = [
   ...same('赤羽', 'jr-keihin', 'yamanote', 8),
   // ── 豊洲（有楽町線↔ゆりかもめ）────────────────────────────
   ...same('豊洲', 'yurakucho', 'yurikamome', 5),
+  // ── 東京（京葉線↔山手線・中央線・丸ノ内線）─────────────────
+  // 京葉線ホームは離れているため乗換時間長め
+  ...same('東京', 'jr-keiyo', 'yamanote',   12),
+  ...same('東京', 'jr-keiyo', 'jr-keihin',  12),
+  ...same('東京', 'jr-keiyo', 'jr-chuo',    15),
+  ...same('東京', 'jr-keiyo', 'marunouchi', 12),
+  // ── 新木場（京葉線↔有楽町線）────────────────────────────────
+  ...same('新木場', 'jr-keiyo', 'yurakucho', 5),
+  // ── 西船橋（京葉線↔東西線・総武線）─────────────────────────
+  ...same('西船橋', 'jr-keiyo', 'tozai',   5),
+  ...same('西船橋', 'jr-keiyo', 'jr-sobu', 5),
 ];
 
 // ============================================================
@@ -729,6 +753,23 @@ export const ELEVATOR_MAP: Record<ElevatorKey, ElevatorRec> = {
   '横浜|tokyu-toyoko': { car: 3, position: '中程', boardNote: '横浜駅東横線エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
   // 田園都市線
   '渋谷|tokyu-denentoshi': { car: 5, position: '中程', boardNote: '田園都市線渋谷駅エレベーターでホームへ', alightNote: '5号車降車後エレベーターで改札へ' },
+  // 小田急小田原線
+  '新宿|odakyu':        { car: 8, position: '前寄り', boardNote: '小田急新宿駅エレベーターでホームへ。8号車付近に乗車', alightNote: '8号車降車後エレベーターで改札へ' },
+  '代々木上原|odakyu':  { car: 5, position: '中程',   boardNote: '代々木上原駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '下北沢|odakyu':      { car: 5, position: '中程',   boardNote: '下北沢駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '成城学園前|odakyu':  { car: 5, position: '中程',   boardNote: '成城学園前駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '登戸|odakyu':        { car: 5, position: '中程',   boardNote: '登戸駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '新百合ヶ丘|odakyu':  { car: 5, position: '中程',   boardNote: '新百合ヶ丘駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '町田|odakyu':        { car: 5, position: '中程',   boardNote: '町田駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '本厚木|odakyu':      { car: 5, position: '中程',   boardNote: '本厚木駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '小田原|odakyu':      { car: 5, position: '中程',   boardNote: '小田原駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  // JR京葉線
+  '東京|jr-keiyo':        { car: 5, position: '中程', boardNote: 'JR東京駅京葉線ホームはB1F。エレベーターで地下へ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで地上改札へ' },
+  '舞浜|jr-keiyo':        { car: 5, position: '中程', boardNote: '舞浜駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ（ディズニーリゾート口）' },
+  '新浦安|jr-keiyo':      { car: 5, position: '中程', boardNote: '新浦安駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '海浜幕張|jr-keiyo':    { car: 5, position: '中程', boardNote: '海浜幕張駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '葛西臨海公園|jr-keiyo':{ car: 5, position: '中程', boardNote: '葛西臨海公園駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
+  '新木場|jr-keiyo':      { car: 5, position: '中程', boardNote: '新木場駅エレベーターでホームへ。5号車付近に乗車', alightNote: '5号車降車後エレベーターで改札へ' },
   // ゆりかもめ（全駅エレベーター完備）
   '新橋|yurikamome':                    { car: 3, position: '中程', boardNote: '新橋駅ゆりかもめ改札横のエレベーターでホームへ。3号車付近に乗車', alightNote: '3号車降車後エレベーターで改札へ' },
   '汐留|yurikamome':                    { car: 3, position: '中程', boardNote: '汐留駅エレベーターでホームへ', alightNote: '3号車降車後エレベーターで改札へ' },
