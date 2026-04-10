@@ -409,6 +409,9 @@ export const TRANSFERS: TransferDef[] = [
   ...same('新宿', 'marunouchi', 'oedo',         5),
   ...same('新宿', 'marunouchi', 'shinjuku',     5),
   ...same('新宿', 'shinjuku',   'oedo',         3),
+  ...same('新宿', 'shinjuku',   'odakyu',       5),
+  ...same('新宿', 'shinjuku',   'keio',         5),
+  ...same('新宿', 'oedo',       'odakyu',       5),
   // ── 池袋 ─────────────────────────────────────────────────
   ...same('池袋', 'yamanote',       'marunouchi',       6),
   ...same('池袋', 'yamanote',       'yurakucho',        5),

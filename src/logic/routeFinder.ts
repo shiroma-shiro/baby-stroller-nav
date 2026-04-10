@@ -142,6 +142,63 @@ export function findRoutes(params: SearchParams): Route[] | null {
         `${to}駅: ${getElevatorRec(to, l2.id, l2.cars).alightNote}`));
     }
 
+    // 3. 2乗換ルート（直通・1乗換で見つからなかった場合のみ）
+    if (routes.length === 0) {
+      outer2: for (const tr1 of TRANSFERS) {
+        // tr1: line1 → line2（乗換駅: tr1.station1/tr1.station2）
+        const l1 = LINES.find(l => l.id === tr1.line1);
+        const l2 = LINES.find(l => l.id === tr1.line2);
+        if (!l1 || !l2) continue;
+        // from → tr1.station1 on line1
+        const r1 = routeInfo(l1, from, tr1.station1);
+        if (!r1) continue;
+
+        for (const tr2 of TRANSFERS) {
+          // tr2: line2 → line3（乗換駅: tr2.station1/tr2.station2）
+          if (tr2.line1 !== tr1.line2) continue;
+          const l3 = LINES.find(l => l.id === tr2.line2);
+          if (!l3 || l3.id === l1.id) continue;
+
+          // tr1.station2 → tr2.station1 on line2（中間区間）
+          const r2mid = tr1.station2 === tr2.station1
+            ? { stops: 0, dir: l2.dirForward }
+            : routeInfo(l2, tr1.station2, tr2.station1);
+          if (!r2mid) continue;
+
+          // tr2.station2 → to on line3
+          const r3 = routeInfo(l3, tr2.station2, to);
+          if (!r3) continue;
+
+          // 時刻計算
+          const dep1 = base + l1.frequencyMin;
+          const s1   = makeSeg(l1, from, tr1.station1, r1.dir, r1.stops, dep1, tr1.elevatorNote);
+          const dep2 = toMin(s1.arrivalTime) + tr1.transferMin;
+
+          let dep3: number;
+          let segs;
+          if (r2mid.stops === 0) {
+            // 同一駅乗換（line2に乗らない）
+            dep3 = dep2 + tr2.transferMin;
+            const s3 = makeSeg(l3, tr2.station2, to, r3.dir, r3.stops, dep3);
+            segs = [s1, s3];
+          } else {
+            // line2に乗って中間駅へ
+            const s2 = makeSeg(l2, tr1.station2, tr2.station1, r2mid.dir, r2mid.stops, dep2, tr2.elevatorNote);
+            dep3 = toMin(s2.arrivalTime) + tr2.transferMin;
+            const s3 = makeSeg(l3, tr2.station2, to, r3.dir, r3.stops, dep3);
+            segs = [s1, s2, s3];
+          }
+
+          const key = `tt-${tr1.line1}-${tr1.station1}-${tr2.station1}-${tr2.line2}`;
+          add(makeRoute(key, segs,
+            `${l1.shortName}→${l2.shortName}→${l3.shortName}（${tr1.station2}・${tr2.station1}乗換）`,
+            `${to}駅: ${getElevatorRec(to, l3.id, l3.cars).alightNote}`));
+
+          if (routes.length >= 3) break outer2;
+        }
+      }
+    }
+
     if (routes.length === 0) return null;
     routes.sort((a, b) => b.babyScore - a.babyScore || a.totalMin - b.totalMin);
     return routes.slice(0, 3).map((r, i) => ({ ...r, rank: i + 1 }));
